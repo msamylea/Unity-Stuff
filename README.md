@@ -1,6 +1,6 @@
 # Unity-Stuff
 
-Various scripts I've created after trying to find something useful and failing.
+Various scripts I've created after trying to find something useful and instead being met with gigantic packages full of stuff I don't need, want, or understand. All this contains are scripts. Nothing else.
 
 ThirdPersonCamera: Drop this script on your main camera. Set the follow target to your character. Camera will follow behind. Pan with Right Mouse button (all directions) or middle mouse button (up and down).  Zoom with scrollwheel.
 
