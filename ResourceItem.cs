@@ -1,0 +1,54 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum ItemType
+{
+    Resource,
+    Craftable,
+    Special
+}
+
+[CreateAssetMenu(fileName = "NewItem", menuName = "Game Item/Base Item")]
+public class GameItem : ScriptableObject
+{
+    public string itemName;
+    public int itemID;
+    public ItemType itemType;
+    public Sprite itemSprite;
+    // Add other common properties here
+}
+
+[CreateAssetMenu(fileName = "NewResourceItem", menuName = "Game Item/Resource Item")]
+public class ResourceItem : GameItem
+{
+    public int gatherTime;
+    public int maxYield;
+    public int yieldAmount;
+    public int respawnTime;
+    public int quantity = 0;
+   
+    // Add properties specific to resource items
+}
+
+
+[CreateAssetMenu(fileName = "NewCraftableItem", menuName = "Game Item/Craftable Item")]
+public class CraftableItem : GameItem
+{
+    public int craftingTime;
+    public List<ResourceRequirement> requiredResources; // List of required resources for crafting
+    public GameObject prefab; // The prefab to instantiate when this item is crafted
+}
+
+[System.Serializable]
+public class ResourceRequirement
+{
+    public ResourceItem resource;
+    public int requiredAmount;
+}
+
+[CreateAssetMenu(fileName = "NewSpecialItem", menuName = "Game Item/Special Item")]
+public class SpecialItem : GameItem
+{
+    public string specialEffect;
+    // Add properties specific to special items
+}
